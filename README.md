@@ -6,6 +6,11 @@ Wizard Pager is a library that provides an example implementation of a Wizard UI
 I've updated Roman's code to use the latest support library, it is now structured as a library project, and it's backwards compatible with Android 2.2
 
 
+Usage
+============
+
+There is a sample implementation, so you can see how to add this library to your project. THe example uses ActionBarSherlock so you will need to add that as a dependency on the example project
+
 Developed By
 ============
 
