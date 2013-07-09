@@ -35,8 +35,8 @@ public abstract class AbstractWizardModel implements ModelCallbacks {
     private PageList mRootPageList;
 
     public AbstractWizardModel(Context context) {
-        mRootPageList = onNewRootPageList();
-        mContext = context;
+    	mContext = context;
+    	mRootPageList = onNewRootPageList();
     }
 
     /**
