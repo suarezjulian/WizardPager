@@ -152,6 +152,18 @@ public abstract class Page implements PageTreeNode {
         return this;
     }
 
+    public <T> Page setNotEqualCondition(Conditional conditional, T comp) {
+        Conditional.Condition c = conditional.new NotEqualCondition<T>(this, comp);
+        mConditions.add(c);
+        return this;
+    }
+
+    public <T> Page setEqualAnyCondition(Conditional conditional, T... choices) {
+        Conditional.Condition c = conditional.new EqualAnyCondition<T>(this, choices);
+        mConditions.add(c);
+        return this;
+    }
+
     public Page satisfyAllConditions(boolean conditionAnd) {
         mConditionAnd = conditionAnd;
         return this;

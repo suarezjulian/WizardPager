@@ -17,6 +17,7 @@
 package com.tech.freak.wizardpager.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Conditional implements ModelCallbacks {
@@ -45,10 +46,33 @@ public class Conditional implements ModelCallbacks {
         }
 
         public boolean isSatisfied() {
-            // If we have no data from the conditional,
-            // assume that the page will be shown.
-            if (mData == null) return true;
             return mCompValue.equals(mData);
+        }
+    }
+
+    public class NotEqualCondition<T> implements Condition {
+        private T mCompValue;
+
+        public NotEqualCondition(Page page, T compValue) {
+            mCompValue = compValue;
+            mConditionalPages.add(page);
+        }
+
+        public boolean isSatisfied() {
+            return !(mCompValue.equals(mData));
+        }
+    }
+
+    public class EqualAnyCondition<T> implements Condition {
+        private ArrayList<T> mChoices = new ArrayList<T>();
+
+        public EqualAnyCondition(Page page, T... choices) {
+            mChoices.addAll(Arrays.asList(choices));
+            mConditionalPages.add(page);
+        }
+
+        public boolean isSatisfied() {
+            return mChoices.contains(mData);
         }
     }
 }
