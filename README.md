@@ -3,7 +3,7 @@ Wizard Pager
 
 ![Wizard Pager Screenshot](https://lh3.googleusercontent.com/-_-Sv3J3bdcc/UdeUUDd1TjI/AAAAAAAAEEo/yproJ-EbCJg/w412-h716-no/wizardPager.png)
 
-Wizard Pager is a library that provides an example implementation of a Wizard UI on Android, it's based of Roman Nurik's wizard pager (https://code.google.com/p/romannurik-code/source/browse/misc/wizardpager)
+Wizard Pager is a library that provides an example implementation of a Wizard UI on Android, it's based of Roman Nurik's wizard pager (https://github.com/romannurik/android-wizardpager)
 
 I've updated Roman's code to use the latest support library, it is now structured as a library project, and it's backwards compatible with Android 2.2
 
