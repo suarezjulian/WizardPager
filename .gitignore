@@ -1,9 +1,80 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#.gitignore for Android project
+
+#for MacOSX
 .DS_Store
-gen
-bin
-out
-*.iml
-*.iws
-*.ipr
-*.properties
+
+#for build.py
+build.version
+
+#for Android SDK
+.metadata
+bin/
+gen/
 build.xml
+build.properties
+local.properties
+.gradle
+
+#for Android SDK 4.0
+ant.properties
+
+#for Idea
+.idea/
+*.iml
+build/
+
+#for eclipse
+.settings
+
+# for python code
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
