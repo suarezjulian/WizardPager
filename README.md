@@ -11,7 +11,7 @@ I've updated Roman's code to use the latest support library, it is now structure
 Usage
 ============
 
-There is a sample implementation, so you can see how to add this library to your project. THe example uses ActionBarSherlock so you will need to add that as a dependency on the example project
+There is a sample implementation, so you can see how to add this library to your project. The example uses ActionBarCompat.
 
 Developed By
 ============
