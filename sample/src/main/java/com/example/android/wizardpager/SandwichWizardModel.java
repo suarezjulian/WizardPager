@@ -18,9 +18,9 @@ package com.example.android.wizardpager;
 
 import android.content.Context;
 
+import com.example.android.wizardpager.pages.CustomerInfoPage;
 import com.tech.freak.wizardpager.model.AbstractWizardModel;
 import com.tech.freak.wizardpager.model.BranchPage;
-import com.tech.freak.wizardpager.model.CustomerInfoPage;
 import com.tech.freak.wizardpager.model.MultipleFixedChoicePage;
 import com.tech.freak.wizardpager.model.NumberPage;
 import com.tech.freak.wizardpager.model.PageList;

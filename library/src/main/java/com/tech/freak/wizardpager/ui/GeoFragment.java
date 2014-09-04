@@ -14,13 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.tech.freak.wizardpager.R;
 import com.tech.freak.wizardpager.model.Page;
 import com.tech.freak.wizardpager.model.SimpleLocationListener;
 
 import java.io.IOException;
 import java.util.List;
-
-import com.tech.freak.wizardpager.R;
 
 public class GeoFragment extends Fragment implements SimpleLocationListener {
 
@@ -111,13 +110,13 @@ public class GeoFragment extends Fragment implements SimpleLocationListener {
 
     @Override
     public void onDetach() {
-        super.onDetach();
         if (mLocationHandler != null) {
             mLocationHandler.stopLocationUpdates();
             mLocationHandler.setLocationListener(null);
         }
         mCallbacks = null;
         mLocationHandler = null;
+        super.onDetach();
     }
 
     @Override
