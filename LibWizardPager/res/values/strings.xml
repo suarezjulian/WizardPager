@@ -5,5 +5,13 @@
     <string name="label_your_email">Email</string>
     <string name="hint_your_email">Optional</string>
     <string name="review">Review</string>
+    
+    <string name="geo_status_searching">Esperando datos del GPS &#8230;</string>
+	<string name="geo_status_found">Ubicación encontrada</string>
+	<string name="geo_status_location">%1$s \n(%2$s)</string>
 
+	<string-array name="image_photo_sources">
+	    <item>Seleccionar desde la galeria</item>
+	    <item>Capturar una nueva foto</item>
+	</string-array>
 </resources>

@@ -18,6 +18,15 @@
         <item name="android:textColor">#ff0099cc</item>
     </style>
 
+    <style name="WizardPageContent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingLeft">?android:attr/listPreferredItemPaddingLeft</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#ff0099cc</item>
+    </style>
+
     <style name="WizardFormLabel">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -27,6 +36,21 @@
         <item name="android:textStyle">bold</item>
         <item name="android:paddingLeft">12dp</item>
         <item name="android:paddingRight">12dp</item>
+    </style>
+
+    <style name="WizardPageImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_margin">@dimen/list_item_padding_left</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    
+    <style name="WizardPageImageContainer">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
 </resources>

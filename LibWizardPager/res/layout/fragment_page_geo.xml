@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/WizardPageContainer" >
+
+    <TextView style="@style/WizardPageTitle" />
+
+    <TextView
+        android:id="@+id/textViewLocationStatus"
+        style="@style/WizardPageContent"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/list_item_padding_left" >
+
+        <TextView
+            android:id="@+id/textViewLocation"
+            style="@style/WizardPageContent"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+</LinearLayout>
