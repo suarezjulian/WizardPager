@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion 19
@@ -13,4 +14,31 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:20.0.0'
+}
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: "file:///${project.buildDir}/mvn-repo")
+
+        pom.groupId     = 'com.tech.freak'
+        pom.artifactId  = 'wizardpager'
+        pom.version     = '1.0'
+        pom.packaging   = 'aar'
+
+        pom.project {
+            url 'https://github.com/TechFreak/WizardPager'
+            licenses {
+                license {
+                    name 'Apache License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0'
+                }
+            }
+            developers {
+                developer {
+                    id 'TechFreak'
+                    name 'Tech Freak'
+                    email 'tech.freak.blog@gmail.com'
+                }
+            }
+        }
+    }
 }
