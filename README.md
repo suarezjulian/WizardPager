@@ -7,11 +7,35 @@ Wizard Pager is a library that provides an example implementation of a Wizard UI
 
 I've updated Roman's code to use the latest support library, it is now structured as a library project, and it's backwards compatible with Android 2.2
 
+Download
+============
+
+You can get the library via Maven:
+
+```xml
+<dependency>
+  <groupId>com.github.techfreak</groupId>
+  <artifactId>wizardpager</artifactId>
+  <version>1.0.0</version>
+  <type>aar</type>
+</dependency>
+```
+
+or Gradle:
+
+```groovy
+dependencies {
+   compile 'com.github.techfreak:wizardpager:1.0.0'
+}
+```
+
 
 Usage
 ============
 
 There is a sample implementation, so you can see how to add this library to your project. The example uses ActionBarCompat.
+
+
 
 Developed By
 ============

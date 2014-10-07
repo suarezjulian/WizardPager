@@ -1,17 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "20.0.0"
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.android.wizardpager"
-        minSdkVersion 8
-        targetSdkVersion 19
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
     }
 }
 
 dependencies {
     compile project(':library')
     compile 'com.android.support:appcompat-v7:20.0.0'
+    //compile 'com.github.techfreak:wizardpager:1.0.0'
 }
