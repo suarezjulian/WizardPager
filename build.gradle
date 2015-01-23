@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.android.tools.build:gradle:1.0.1'
     }
 }
 
@@ -22,9 +22,9 @@ allprojects {
     }
 }
 
-ext.compileSdkVersion=20
-ext.buildToolsVersion="20.0.0"
+ext.compileSdkVersion=21
+ext.buildToolsVersion="21.1.2"
 ext.minSdkVersion=8
-ext.targetSdkVersion=20
+ext.targetSdkVersion=21
 ext.sourceCompatibility=JavaVersion.VERSION_1_7
 ext.targetCompatibility =JavaVersion.VERSION_1_7
