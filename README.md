@@ -10,25 +10,25 @@ I've updated Roman's code to use the latest support library, it is now structure
 Download
 ============
 
-You can get the library via Maven:
-
-```xml
-<dependency>
-  <groupId>com.github.techfreak</groupId>
-  <artifactId>wizardpager</artifactId>
-  <version>1.0.0</version>
-  <type>aar</type>
-</dependency>
-```
-
-or Gradle:
+Heimdall is ready to be used via [jitpack.io](https://jitpack.io/#TechFreak/WizardPager).
+Simply add the following code to your root `build.gradle`:
 
 ```groovy
-dependencies {
-   compile 'com.github.techfreak:wizardpager:1.0.0'
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
 }
 ```
 
+Now add the gradle dependency in your application's `build.gradle`:
+
+```groovy
+dependencies {
+    compile 'com.github.TechFreak:WizardPager:{latest_version}'
+}
+```
 
 Usage
 ============
