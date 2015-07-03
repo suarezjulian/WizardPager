@@ -10,7 +10,7 @@ I've updated Roman's code to use the latest support library, it is now structure
 Download
 ============
 
-Heimdall is ready to be used via [jitpack.io](https://jitpack.io/#TechFreak/WizardPager).
+WizardPager is ready to be used via [jitpack.io](https://jitpack.io/#TechFreak/WizardPager).
 Simply add the following code to your root `build.gradle`:
 
 ```groovy
