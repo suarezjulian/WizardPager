@@ -24,8 +24,10 @@ import com.tech.freak.wizardpager.model.Page;
 public class ImageFragment extends Fragment {
 
 	private static final String NEW_IMAGE_URI = "new_image_uri";
-	private static final int GALLERY_REQUEST_CODE = 0;
-	private static final int CAMERA_REQUEST_CODE = 1;
+	private final int GALLERY_REQUEST_CODE =
+			Math.abs((short) (hashCode() ^ (hashCode() >>> 16)) - 0);
+	private final int CAMERA_REQUEST_CODE =
+			Math.abs((short) (hashCode() ^ (hashCode() >>> 16)) - 1);
 
 	protected static final String ARG_KEY = "key";
 
@@ -172,20 +174,17 @@ public class ImageFragment extends Fragment {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
-		switch (requestCode) {
-		case CAMERA_REQUEST_CODE:
+		if(requestCode == CAMERA_REQUEST_CODE) {
 			if (resultCode == Activity.RESULT_OK) {
 				imageView.setImageURI(mNewImageUri);
 				writeResult();
 			}
-			break;
-		case GALLERY_REQUEST_CODE:
+		} else if(requestCode == GALLERY_REQUEST_CODE) {
 			if (resultCode == Activity.RESULT_OK && data != null) {
 				mNewImageUri = data.getData();
 				imageView.setImageURI(mNewImageUri);
 				writeResult();
 			}
-			break;
 		}
 	}
 
