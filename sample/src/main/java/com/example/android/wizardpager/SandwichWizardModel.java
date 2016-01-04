@@ -68,7 +68,8 @@ public class SandwichWizardModel extends AbstractWizardModel {
                         new SingleFixedChoicePage(this, "Dressing").setChoices(
                                 "No dressing", "Balsamic", "Oil & vinegar",
                                 "Thousand Island", "Italian").setValue("No dressing"),
-                        new NumberPage(this, "How Many Salads?").setRequired(true)),
+                        new NumberPage(this, "How Many Salads?").setRequired(true))
+                .setRequired(true),
                 new TextPage(this, "Comments").setRequired(true)
 
                         .setRequired(true),
