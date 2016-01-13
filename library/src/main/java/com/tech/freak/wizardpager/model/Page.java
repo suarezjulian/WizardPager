@@ -1,4 +1,5 @@
 /*
+ * Copyright 2013 str4d
  * Copyright 2012 Roman Nurik
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +21,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represents a single page in the wizard.
@@ -31,6 +33,24 @@ public abstract class Page implements PageTreeNode {
     public static final String SIMPLE_DATA_KEY = "_";
 
     protected ModelCallbacks mCallbacks;
+
+    /**
+     * Conditionals that rely on this page.
+     */
+    protected List<ModelCallbacks> mConditionals = new ArrayList<ModelCallbacks>();
+
+    /**
+     * Conditions on whether this page should be used.
+     */
+    protected List<Conditional.Condition> mConditions = new ArrayList<Conditional.Condition>();
+    /**
+     * Should all conditions be satisfied, or any of them?
+     */
+    protected boolean mConditionAnd = false;
+    /**
+     * The last condition status.
+     */
+    protected boolean mSatisfied = true;
 
     /**
      * Current wizard values/selections.
@@ -53,22 +73,43 @@ public abstract class Page implements PageTreeNode {
         return mTitle;
     }
 
+    public boolean isSatisfied() {
+        boolean ret = true;
+        if (mConditions.size() > 0) {
+            ret = false;
+            for (Conditional.Condition c : mConditions) {
+                if (c.isSatisfied()) {
+                    ret = true;
+                    if (!mConditionAnd) break;
+                } else if (mConditionAnd) {
+                    ret = false;
+                    break;
+                }
+            }
+        }
+        // If the conditions have changed, update the page tree.
+        if (!(mSatisfied == ret)) {
+            mSatisfied = ret;
+            mCallbacks.onPageTreeChanged();
+        }
+        return mSatisfied;
+    }
+
     public boolean isRequired() {
-        return mRequired;
+        return isSatisfied() && mRequired;
     }
 
     void setParentKey(String parentKey) {
         mParentKey = parentKey;
     }
 
-    @Override
     public Page findByKey(String key) {
         return getKey().equals(key) ? this : null;
     }
 
-    @Override
     public void flattenCurrentPageSequence(ArrayList<Page> dest) {
-        dest.add(this);
+        if (isSatisfied())
+            dest.add(this);
     }
 
     public abstract Fragment createFragment();
@@ -89,11 +130,42 @@ public abstract class Page implements PageTreeNode {
     }
 
     public void notifyDataChanged() {
+        for (ModelCallbacks c : mConditionals) {
+            c.onPageDataChanged(this);
+        }
         mCallbacks.onPageDataChanged(this);
     }
 
     public Page setRequired(boolean required) {
         mRequired = required;
+        return this;
+    }
+
+    public Page makeConditional(Conditional conditional) {
+        mConditionals.add(conditional);
+        return this;
+    }
+
+    public <T> Page setEqualCondition(Conditional conditional, T comp) {
+        Conditional.Condition c = conditional.new EqualCondition<T>(this, comp);
+        mConditions.add(c);
+        return this;
+    }
+
+    public <T> Page setNotEqualCondition(Conditional conditional, T comp) {
+        Conditional.Condition c = conditional.new NotEqualCondition<T>(this, comp);
+        mConditions.add(c);
+        return this;
+    }
+
+    public <T> Page setEqualAnyCondition(Conditional conditional, T... choices) {
+        Conditional.Condition c = conditional.new EqualAnyCondition<T>(this, choices);
+        mConditions.add(c);
+        return this;
+    }
+
+    public Page satisfyAllConditions(boolean conditionAnd) {
+        mConditionAnd = conditionAnd;
         return this;
     }
 }
